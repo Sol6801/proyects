@@ -52,6 +52,20 @@ const PortfolioGrid = () => {
       githubUrl: "https://github.com/Sol6801/dunya"
     },
     {
+      title: "Maderera",
+      description: "Sitio web estático para una maderera, creado con HTML y CSS vainilla.",
+      imageUrl: "/maderasbarbero.webp",
+      projectUrl: "https://sol6801.github.io/maderasbarbero/",
+      githubUrl: "https://github.com/Sol6801/maderasbarbero"
+    },
+    {
+      title: "Panadería",
+      description: "Sitio web estático para una panadería, diseñado con HTML, CSS y Bootstrap.",
+      imageUrl: "/panaderia.webp",
+      projectUrl: "https://sol6801.github.io/BAmulti/",
+      githubUrl: "https://github.com/Sol6801/BAmulti"
+    },
+    {
       title: "Planner Buddy",
       description: "App web dinámica para tomar decisiones en grupo. Creada con Next.js, Tailwind CSS, AWS, Prisma y más.",
       imageUrl: "/plannerbuddy.webp",
@@ -65,20 +79,6 @@ const PortfolioGrid = () => {
       projectUrl: "https://sol6801.github.io/TPStaticWeb/index.html",
       githubUrl: "https://github.com/Sol6801/TPStaticWeb"
     },
-    {
-      title: "Maderera",
-      description: "Sitio web estático para una maderera, creado con HTML y CSS vainilla.",
-      imageUrl: "/maderasbarbero.webp",
-      projectUrl: "https://sol6801.github.io/maderasbarbero/",
-      githubUrl: "https://github.com/Sol6801/maderasbarbero"
-    },
-    {
-      title: "Panadería",
-      description: "Sitio web estático para una panadería, diseñado con HTML, CSS y Bootstrap.",
-      imageUrl: "/panaderia.webp",
-      projectUrl: "https://sol6801.github.io/BAmulti/",
-      githubUrl: "https://github.com/Sol6801/BAmulti"
-    }
   ];
 
   return (

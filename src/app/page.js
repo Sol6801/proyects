@@ -7,101 +7,78 @@ import { Github, WhatsApp, Mail } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons";
 import styles from '@/styles/animations.css';
 
+const FourPointStar = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M12 2 Q14 6, 16 9 Q20 11, 22 12 Q20 13, 16 15 Q14 18, 12 22 Q10 18, 8 15 Q4 13, 2 12 Q4 11, 8 9 Q10 6, 12 2 Z" />
+  </svg>
+);
+
+const STAR_CONFIG = [
+  { size: 'sm', float: 'float-1', pos: 'star-pos-0' },
+  { size: 'lg', float: 'float-3', pos: 'star-pos-1' },
+  { size: 'xs', float: 'float-1', pos: 'star-pos-2' },
+  { size: 'md', float: 'float-4', pos: 'star-pos-3' },
+  { size: 'xl', float: 'float-2', pos: 'star-pos-4' },
+  { size: 'sm', float: 'float-3', pos: 'star-pos-5' },
+  { size: 'lg', float: 'float-1', pos: 'star-pos-6' },
+  { size: 'md', float: 'float-2', pos: 'star-pos-7' },
+  { size: 'xs', float: 'float-4', pos: 'star-pos-8' },
+  { size: 'sm', float: 'float-4', pos: 'star-pos-9' },
+  { size: 'xl', float: 'float-1', pos: 'star-pos-10' },
+  { size: 'lg', float: 'float-2', pos: 'star-pos-11' },
+  { size: 'sm', float: 'float-1', pos: 'star-pos-12' },
+  { size: 'xs', float: 'float-3', pos: 'star-pos-13' },
+  { size: 'md', float: 'float-3', pos: 'star-pos-14' },
+  { size: 'xl', float: 'float-4', pos: 'star-pos-15' },
+  { size: 'lg', float: 'float-4', pos: 'star-pos-16' },
+  { size: 'sm', float: 'float-2', pos: 'star-pos-17' },
+  { size: 'xl', float: 'float-3', pos: 'star-pos-18' },
+  { size: 'xs', float: 'float-2', pos: 'star-pos-19' },
+  { size: 'md', float: 'float-1', pos: 'star-pos-20' },
+];
+
+const Stars = () => (
+  <div className="stars-container">
+    {STAR_CONFIG.map((config, index) => (
+      <FourPointStar
+        key={index}
+        className={`star star-${config.size} ${config.float} ${config.pos}`}
+      />
+    ))}
+  </div>
+);
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const offset = 80;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
+
+const WhatsAppButton = () => (
+  <a
+    href="https://wa.link/683x1t"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 ease-in-out z-50 flex items-center justify-center"
+    aria-label="Contactar por WhatsApp"
+  >
+    <WhatsAppIcon className="h-8 w-8" />
+  </a>
+);
+
 export default function Home() {
-
-  const FourPointStar = ({ className }) => (
-    <svg 
-      className={className} 
-      viewBox="0 0 24 24" 
-      xmlns="http://www.w3.org/2000/svg"
-    >
-       <path d="
-    M12 2 
-    Q14 6, 16 9 
-    Q20 11, 22 12 
-    Q20 13, 16 15 
-    Q14 18, 12 22 
-    Q10 18, 8 15 
-    Q4 13, 2 12 
-    Q4 11, 8 9 
-    Q10 6, 12 2
-    Z"
-  />
-    </svg>
-  );
-  
-  const STAR_CONFIG = [    
-    { size: 'sm', float: 'float-1', pos: 'star-pos-0' },
-    { size: 'lg', float: 'float-3', pos: 'star-pos-1' },
-    { size: 'xs', float: 'float-1', pos: 'star-pos-2' },
-    { size: 'md', float: 'float-4', pos: 'star-pos-3' },
-    { size: 'xl', float: 'float-2', pos: 'star-pos-4' },
-    { size: 'sm', float: 'float-3', pos: 'star-pos-5' },
-    { size: 'lg', float: 'float-1', pos: 'star-pos-6' },
-    { size: 'md', float: 'float-2', pos: 'star-pos-7' },
-    { size: 'xs', float: 'float-4', pos: 'star-pos-8' },
-    { size: 'sm', float: 'float-4', pos: 'star-pos-9' },
-    { size: 'xl', float: 'float-1', pos: 'star-pos-10' },
-    { size: 'lg', float: 'float-2', pos: 'star-pos-11' },
-    { size: 'sm', float: 'float-1', pos: 'star-pos-12' },
-    { size: 'xs', float: 'float-3', pos: 'star-pos-13' },
-    { size: 'md', float: 'float-3', pos: 'star-pos-14' },
-    { size: 'xl', float: 'float-4', pos: 'star-pos-15' },
-    { size: 'lg', float: 'float-4', pos: 'star-pos-16' },
-    { size: 'sm', float: 'float-2', pos: 'star-pos-17' },
-    { size: 'xl', float: 'float-3', pos: 'star-pos-18' },
-    { size: 'xs', float: 'float-2', pos: 'star-pos-19' },
-    { size: 'md', float: 'float-1', pos: 'star-pos-20' },
-  ];
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
-  const StarSvg = ({ className }) => (
-    <svg 
-      className={className} 
-      viewBox="0 0 24 24" 
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M12 1.875l2.094 6.832h6.781l-5.438 4.219 2.094 6.844-5.531-4.219-5.531 4.219 2.094-6.844-5.438-4.219h6.781z"/>
-    </svg>
-  );
-
-  const WhatsAppButton = () => (
-    <a
-      href="https://wa.link/683x1t"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 ease-in-out z-50 flex items-center justify-center"
-      aria-label="Contactar por WhatsApp"
-    >
-      <WhatsAppIcon className="h-8 w-8" />
-    </a>
-  );
-
-  
-  const Stars = () => (
-    <div className="stars-container">
-      {STAR_CONFIG.map((config, index) => (
-        <FourPointStar
-          key={index}
-          className={`star star-${config.size} ${config.float} ${config.pos}`}
-        />
-      ))}
-    </div>
-  );
-
-
   return (
     <div className="min-h-screen">
       <WhatsAppButton />
