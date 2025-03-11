@@ -85,7 +85,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="animated-bg flex items-center relative min-h-[100vh]">
+      <section className="animated-bg flex items-center relative min-h-[100vh] h-screen">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-8 relative py-20 md:py-32">
             <div className="fade-in px-4">
