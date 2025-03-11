@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,13 +54,20 @@ export default function Navbar() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center relative">
             <div
-              className="font-bold text-xl text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+              className="font-bold text-xl text-gray-800 hover:text-gray-600 transition-colors cursor-pointer flex flex-row gap-4"
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 setIsMenuOpen(false);
               }}
             >
-              Sol Barbero
+              <Image
+              src="/favicon.webp"
+            width={35}
+            height={35}
+            alt="icon"
+            className="h-full"
+          />
+              <h1 className="self-center">Sol Barbero</h1>
             </div>
 
             {/* Desktop Menu */}
